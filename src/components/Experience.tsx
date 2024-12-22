@@ -12,7 +12,7 @@ const experiences = [
       "Create Controllers, modules, and services as per customer requirements",
       "Integrate the API provided by the backend team and verify it using Postman",
       "Meeting with the development team to define the scope and scale of software projects",
-      "Currently working with Freshdesk",
+      "Currently working with Freshworks Products",
       "Projects: React Native (Grozerbeez), Reactjs (EasyDaily & AnythingKovai)",
     ],
   },
