@@ -1,3 +1,4 @@
+import React from "react";
 import { Calendar, MapPin, Briefcase } from "lucide-react";
 
 const experiences = [
@@ -79,18 +80,18 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-gray-800">
+    <section id="experience" className="py-20 bg-gray-100 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-800 dark:text-gray-100 sm:text-4xl">
             Professional Journey
           </h2>
-          <div className="mt-4 h-1 w-24 bg-indigo-600 mx-auto rounded"></div>
+          <div className="mt-4 h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded"></div>
         </div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+          {/* Timeline Line */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-500 to-purple-600"></div>
 
           <div className="space-y-16">
             {experiences.map((exp, index) => (
@@ -100,39 +101,39 @@ export function Experience() {
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                {/* Timeline dot */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-indigo-600"></div>
+                {/* Timeline Dot */}
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 animate-pulse"></div>
 
                 <div className="w-full md:w-1/2 p-6">
-                  <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
                         {exp.position}
                       </h3>
-                      <span className="px-3 py-1 text-sm text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900 rounded-full">
+                      <span className="px-3 py-1 text-sm text-white bg-indigo-600 rounded-full">
                         {exp.id}
                       </span>
                     </div>
 
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center text-gray-600 dark:text-gray-300">
-                        <Briefcase className="h-4 w-4 mr-2" />
+                        <Briefcase className="h-5 w-5 mr-2 text-indigo-600" />
                         <span>{exp.company}</span>
                       </div>
                       <div className="flex items-center text-gray-600 dark:text-gray-300">
-                        <MapPin className="h-4 w-4 mr-2" />
+                        <MapPin className="h-5 w-5 mr-2 text-indigo-600" />
                         <span>{exp.location}</span>
                       </div>
                       <div className="flex items-center text-gray-600 dark:text-gray-300">
-                        <Calendar className="h-4 w-4 mr-2" />
+                        <Calendar className="h-5 w-5 mr-2 text-indigo-600" />
                         <span>{exp.date}</span>
                       </div>
                     </div>
 
-                    <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+                    <ul className="space-y-2 text-gray-700 dark:text-gray-400">
                       {exp.description.map((item, i) => (
                         <li key={i} className="flex items-start">
-                          <span className="mr-2">•</span>
+                          <span className="mr-2 text-indigo-600">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
