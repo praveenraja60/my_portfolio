@@ -5,43 +5,31 @@ const skills = [
   {
     name: "HTML5",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-    level: 90,
   },
   {
     name: "CSS3",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    level: 85,
   },
   {
     name: "Bootstrap",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
-    level: 80,
   },
   {
     name: "Git",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    level: 75,
   },
   {
     name: "React",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    level: 85,
   },
   {
     name: "JavaScript",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    level: 80,
   },
   {
     name: "TypeScript",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    level: 70,
   },
-  // {
-  //   name: "Freshworks",
-  //   icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAA51BMVEVHcExA0euyY8SmZMT4qAtU3vP/qwDAY8ZQ7ff6kQ1Do+ruWSKnZMT4swRZ8vZghNCtY8X/qQD/qABZ8vbuWiTrVybuWiRFpOyhY8TFVJy9Zcz/qAD/vAAEx/wxd7JFpO3UOk1Y8vbvWiOK4FUlwXCbZcNb9PaP4VMawG9c0GL/swAlwmkVxPjrVCj1tg2F4FesZMGU1lAp1vfrgx8+k9g73/bgRTzVRUdJ6PXcwyO1yT8wr/E2npAyh6Q3hsQaxsYbxJ+6ikrLTmBqbrsVxeTJT4xX1F5Qc7Y9qe69b1E2pa6+dVAytHwly6i3AAAAG3RSTlMAWD8l8y/S/uUp6OXdTHqmZIVgxYdVwsOIwYjpSXbWAAABaklEQVQokV3S53aCQBAF4JXYSzS9UMQFREU0hNi7Jqa+//NkZnbAnNyfft6763GFSJI7vyq2OO12u1XMpHRepE8Yps+mue3WuIWUwKhvmuamc5znyTItlukIKpBXt9P1DZ0NKwxA26DTdWY9xBwd0mcx+9sAzI8MwmJaMeEbGzfAzeHM0AEzi7SEhwUumjM3CMvN5seiT1l8BWzDAazqItdM87IEUgZFxHpK1ioxxzdwVRd3TGvLchOD2ygskwFZSz7PcSKDVnWhFjGpObMTKsKisuHOUKswu1Zm/SS9z5gxK+psFt8l2o+zvJoX996BbEW/L9rZdjhgvBCa53mHd8CjH82/bTA54CNLQlQ9ytPEpkwkNnt0pBANZQVlUEzwEv/rKhnjWMowS6vqkZyRFfZclGFMWFLPS0MrvHFRyhhXa8m71BALdBtMOOidDJarqhoSyjhfEn/TwOpYWeVG/I/2+FABuL0+tX4BGUpaBFUGsncAAAAASUVORK5CYII=", // Freshworks logo URL
-
-  // },
 ];
 
 const sliderSkills = [
@@ -88,7 +76,7 @@ export function Skills() {
 
         {/* Container with two equal columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
-          {/* First Column - Skills List with Image and Level, Displaying 3 per row */}
+          {/* First Column - Skills List with Image Only */}
           <div>
             <motion.h3
               className="text-xl font-semibold text-gray-900 dark:text-white mb-4"
@@ -119,13 +107,6 @@ export function Skills() {
                   <h4 className="font-medium text-gray-900 dark:text-white">
                     {skill.name}
                   </h4>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                    <div
-                      className="bg-indigo-600 dark:bg-indigo-400 h-2.5 rounded-full"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                  <span className="text-sm text-gray-400">{skill.level}%</span>
                 </motion.li>
               ))}
             </motion.ul>
