@@ -75,7 +75,7 @@ export function Skills() {
         </div>
 
         {/* Container with two equal columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-12">
           {/* First Column - Skills List with Image Only */}
           <div>
             <motion.h3
@@ -90,7 +90,7 @@ export function Skills() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6"
             >
               {skills.map((skill, index) => (
                 <motion.li
