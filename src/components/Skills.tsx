@@ -90,7 +90,7 @@ export function Skills() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-4 gap-6" // 3 items per row
             >
               {skills.map((skill, index) => (
                 <motion.li
