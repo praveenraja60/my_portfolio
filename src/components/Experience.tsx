@@ -46,6 +46,40 @@ const experiences = [
       "Projects: HMS (Hospital Management System), TMS (Task Management System), HRA",
     ],
   },
+  {
+    id: 4,
+    position: "Project Delegate",
+    date: "May 2021 – December 2021",
+    company: "SRJ Infognana Systems Private Limited",
+    location: "Coimbatore",
+    description: [
+      "Collaborated closely with design, product management, and development teams to create elegant, responsive, and interactive client webpages.",
+      "Worked with back-end developers and web designers to enhance usability and user experience.",
+      "Developed components and modules tailored to customer requirements.",
+      "Maintained, updated, and improved existing company websites for optimal performance.",
+      "Implemented modern functionalities for frontend web-based applications.",
+      "Supported seamless integration of rapidly evolving design and technology.",
+      "Pushed the latest code to GitHub for version control and collaboration.",
+      "Key Projects: Tab Service, Easy Cart.",
+    ],
+  },
+  {
+    id: 5,
+    position: "Junior Developer",
+    date: "September 2020 – April 2021",
+    company: "Aaludra Technologies",
+    location: "Coimbatore",
+    description: [
+      "Played a pivotal role in developing, improving, and operating web-based software systems.",
+      "Conducted thorough code reviews, addressed bugs, performed QA testing, and effectively solved problems.",
+      "Verified API functionality using tools such as POSTMAN and SWAGGER to ensure reliable performance.",
+      "Provided responsive technical support to clients, resolving issues promptly to ensure satisfaction.",
+      "Ensured precise form alignment according to user needs and specifications.",
+      "Contributed significantly to the success of key project initiatives, including SFC (Sakthi Fertilizers Corporations).",
+      "Collaborated closely with teams to optimize software functionality and enhance user experience.",
+      "Facilitated continuous improvement through proactive problem-solving and innovative solutions.",
+    ],
+  },
 ];
 
 export function Experience() {
