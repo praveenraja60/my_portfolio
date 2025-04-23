@@ -1,6 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Briefcase } from "lucide-react";
+import { AnimatedTimeline } from "./AnimatedTimeline";
 
 const experiences = [
   {
@@ -10,25 +10,37 @@ const experiences = [
     company: "Kambaa Incorporation",
     location: "Coimbatore",
     description: [
-      "Working on Independent Project in React Native for (Android & IOS)",
-      "Create Controllers, modules, and services as per customer requirements",
-      "Integrate the API provided by the backend team and verify it using Postman",
-      "Meeting with the development team to define the scope and scale of software projects",
-      "Currently working with Freshworks Products",
-      "Projects: React Native (Grozerbeez), Reactjs (EasyDaily & AnythingKovai)",
+      "Transformed legacy projects into modern, responsive applications using React.js, resulting in significant improvements in performance, speed, and overall efficiency.",
+      "Designed and developed a feature-rich Admin Panel with tailored functionalities for both customers and delivery personnel, enhancing operational control and user accessibility.",
+      "Overhauled the user interface with a fresh, intuitive design and integrated advanced features aligned with specific client requirements.",
+      "Took ownership of end-to-end development on several standalone projects using React Native, successfully launching apps on both Android and iOS with seamless cross-platform compatibility.",
+      "Integrated a smart alert system for real-time order notifications, significantly improving the end-user experience and response time.",
+      "Handled payment integration using Razorpay, ensuring secure, reliable, and smooth transaction workflows across platforms.",
+      "Regularly deployed updated code to production servers, ensuring seamless integration, minimal downtime, and optimal performance.",
+      "Played a key role in major projects such as Grozerbeez (React Native), EasyDaily, and AnythingKovai (React.js).",
+      "Embraced agile methodologies, contributing to faster development cycles and timely project deliveries.",
+      "Worked closely with senior backend developers using Node.js to identify bottlenecks and implement performance enhancements.",
+      "Promoted a culture of collaboration by sharing insights and best practices, ultimately contributing to team growth and project success.",
+      "Maintained a proactive approach to troubleshooting, continuously improving systems through innovative and efficient solutions.",
+      "Built new projects with Prompt using AI and integrated with Supabase.",
+      "Tested upcoming AI technologies and created presentations on findings.",
+      "Managed and maintained projects developed using PHP, Laravel, and Next.js, ensuring smooth functionality.",
     ],
   },
   {
     id: 2,
     position: "Web Application Developer",
     date: "Jan 2023 – May 2023",
-    company: "INTUITIVE STACK SOLUTIONS PVT LTD",
+    company: "Intuitive Stack Solutions Private Limited",
     location: "Hyderabad",
     description: [
-      "Resolving Problems that impact the design of current or developing products",
-      "Create Controllers, Modules, and Services as per customer requirements",
-      "Implemented new functionality for the frontend web-based applications",
-      "Meeting with the development team to define the scope and scale of software projects",
+      "Identified and resolved design issues in both existing and developing products.",
+      "Developed controllers, modules, and services tailored to customer requirements.",
+      "Implemented new functionalities for frontend web applications, enhancing the overall user experience.",
+      "Conducted thorough manual testing of projects and meticulously documented feedback.",
+      "Collaborated closely with the development team to define the scope and scale of software projects.",
+      "Applied best practices in software development to ensure high-quality deliverables.",
+      "Utilized project management tools to track progress and ensure timely completion of tasks.",
     ],
   },
   {
@@ -38,12 +50,13 @@ const experiences = [
     company: "BambeeQ Solutions Private Limited",
     location: "Chennai",
     description: [
-      "Provide end-to-end service for database and user-facing websites",
-      "Resolving Problems that impact the design of current or developing products",
-      "Create components and modules as per customer requirements",
-      "Implemented new functionality for the frontend web-based applications",
-      "Meeting with the development team to define the scope and scale of software projects",
-      "Projects: HMS (Hospital Management System), TMS (Task Management System), HRA",
+      "Delivered comprehensive end-to-end services, engaging in projects encompassing databases and user-facing websites.",
+      "Resolved complex design issues affecting both current and developing products.",
+      "Developed components and modules precisely tailored to customer specifications.",
+      "Implemented advanced functionalities for frontend web-based applications, enhancing overall usability and performance.",
+      "Collaborated closely with the development team to define the scope and scale of software projects.",
+      "Key Projects: HMS (Hospital Management System), TMS (Task Management System), HRA.",
+      "Enhanced project outcomes through proactive problem-solving and innovation.",
     ],
   },
   {
@@ -56,8 +69,8 @@ const experiences = [
       "Collaborated closely with design, product management, and development teams to create elegant, responsive, and interactive client webpages.",
       "Worked with back-end developers and web designers to enhance usability and user experience.",
       "Developed components and modules tailored to customer requirements.",
-      "Maintained, updated, and improved existing company websites for optimal performance.",
-      "Implemented modern functionalities for frontend web-based applications.",
+      "Maintained, updated, and improved existing company websites for optimal performance and reliability.",
+      "Implemented modern functionalities for frontend web-based applications, ensuring cutting-edge features.",
       "Supported seamless integration of rapidly evolving design and technology.",
       "Pushed the latest code to GitHub for version control and collaboration.",
       "Key Projects: Tab Service, Easy Cart.",
@@ -98,17 +111,26 @@ export function Experience() {
           <div className="mt-4 h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded"></div>
         </motion.div>
 
-        <div className="relative">
+        <AnimatedTimeline>
           <div className="space-y-16">
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className={`relative flex items-center ${
+                className={`relative flex items-center timeline-item ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
+                variants={{
+                  hidden: { opacity: 0, y: 100 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: "spring",
+                      damping: 12,
+                      stiffness: 100,
+                    },
+                  },
+                }}
               >
                 <div className="w-full md:w-1/2 p-6">
                   <motion.div
@@ -158,7 +180,7 @@ export function Experience() {
               </motion.div>
             ))}
           </div>
-        </div>
+        </AnimatedTimeline>
       </div>
     </section>
   );

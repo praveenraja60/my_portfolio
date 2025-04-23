@@ -1,5 +1,5 @@
-import React from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Footer() {
@@ -18,7 +18,7 @@ export function Footer() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <Github className="h-6 w-6" />
+            <GitHubLogoIcon className="h-6 w-6" />
           </motion.a>
           <motion.a
             href="https://linkedin.com/in/praveen-rajkumar-59163416b"

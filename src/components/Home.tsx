@@ -1,6 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Linkedin, Mail } from "lucide-react";
+import { AnimatedText } from "./AnimatedText";
 
 export function Home() {
   return (
@@ -16,33 +17,19 @@ export function Home() {
           className="text-center"
         >
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-            <motion.span
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="block"
-            >
-              Hi, I'm Praveen Rajkumar
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="block text-indigo-600 dark:text-indigo-400"
-            >
-              Frontend Developer
-            </motion.span>
+            <div className="block">
+              <AnimatedText text="Hi, I'm Praveen Rajkumar" delay={200} />
+            </div>
+            <div className="block text-indigo-600 dark:text-indigo-400">
+              <AnimatedText text="Frontend Developer" delay={1000} />
+            </div>
           </h1>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-3 max-w-md mx-auto text-base text-gray-500 dark:text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
-          >
-            3.5+ years of experience in designing and developing web
-            applications using React, JavaScript, TypeScript, and modern
-            frontend technologies.
-          </motion.p>
+          <div className="mt-3 max-w-md mx-auto text-base text-gray-500 dark:text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            <AnimatedText
+              text="Experienced SDE-2 specializing in JavaScript, TypeScript, and React.js, with a strong focus on modern front-end development. Skilled in state management (Redux) and building scalable, high-performance UI using Tailwind CSS, Styled Components, and Material UI. Passionate about creating responsive, maintainable, and scalable web applications using the latest technologies."
+              delay={1800}
+            />
+          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -77,7 +64,7 @@ export function Home() {
               href="https://github.com"
               className="text-gray-400 hover:text-gray-500"
             >
-              <Github className="h-6 w-6" />
+              <GitHubLogoIcon className="h-6 w-6" />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.1 }}
