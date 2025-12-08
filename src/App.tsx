@@ -1,6 +1,7 @@
 import { Home } from "./components/Home";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
+import { Certifications } from "./components/Certifications";
 import { Contact } from "./components/Contact";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
@@ -13,6 +14,7 @@ function App() {
         <Home />
         <Experience />
         <Skills />
+        <Certifications />
         <Contact />
       </main>
       <Footer />

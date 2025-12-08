@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Download } from "lucide-react";
 import { AnimatedText } from "./AnimatedText";
 
 export function Home() {
@@ -34,22 +34,32 @@ export function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8"
+            className="mt-5 max-w-3xl mx-auto sm:flex sm:justify-center md:mt-8 gap-3"
           >
             <div className="rounded-md shadow">
               <a
                 href="#contact"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10 transition-all"
               >
                 Get in touch
               </a>
             </div>
-            <div className="mt-3 sm:mt-0 sm:ml-3">
+            <div className="mt-3 sm:mt-0 rounded-md shadow">
               <a
                 href="#experience"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition-all"
               >
                 View my work
+              </a>
+            </div>
+            <div className="mt-3 sm:mt-0 rounded-md shadow">
+              <a
+                href="/Assets/Praveen Resume.pdf"
+                download="Praveen_Rajkumar_Resume.pdf"
+                className="w-full flex items-center justify-center px-8 py-3 border-2 border-indigo-600 text-base font-medium rounded-md text-indigo-600 bg-transparent hover:bg-indigo-50 dark:hover:bg-gray-700 md:py-4 md:text-lg md:px-10 transition-all"
+              >
+                <Download className="h-5 w-5 mr-2" />
+                Resume
               </a>
             </div>
           </motion.div>
@@ -62,21 +72,25 @@ export function Home() {
             <motion.a
               whileHover={{ scale: 1.1 }}
               href="https://github.com"
-              className="text-gray-400 hover:text-gray-500"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               <GitHubLogoIcon className="h-6 w-6" />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.1 }}
-              href="https://linkedin.com/in/praveen-rajkumar-59163416b"
-              className="text-gray-400 hover:text-gray-500"
+              href="https://www.linkedin.com/in/praveen-rajkumar-59163416b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               <Linkedin className="h-6 w-6" />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.1 }}
               href="mailto:praveenraja60@gmail.com"
-              className="text-gray-400 hover:text-gray-500"
+              className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               <Mail className="h-6 w-6" />
             </motion.a>

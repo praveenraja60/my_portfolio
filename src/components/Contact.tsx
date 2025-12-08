@@ -40,14 +40,16 @@ export function Contact() {
               </div>
               <div className="flex items-center">
                 <Phone className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
-                <span className="ml-3 text-gray-600 dark:text-gray-300">
-                  +91 9566502092
-                </span>
+                <a href="tel:+919566502092" className="ml-3 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                  +91 95665-02092
+                </a>
               </div>
               <div className="flex items-center">
                 <Linkedin className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                 <a
-                  href="https://linkedin.com/in/praveen-rajkumar-59163416b"
+                  href="https://www.linkedin.com/in/praveen-rajkumar-59163416b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="ml-3 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
                 >
                   LinkedIn Profile

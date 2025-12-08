@@ -5,8 +5,8 @@ import { AnimatedTimeline } from "./AnimatedTimeline";
 const experiences = [
   {
     id: 1,
-    position: "Reactjs Developer",
-    date: "Aug 2023 – Present",
+    position: "React.js Developer",
+    date: "August 2023 — December 2025",
     company: "Kambaa Incorporation",
     location: "Coimbatore",
     description: [
@@ -30,8 +30,8 @@ const experiences = [
   {
     id: 2,
     position: "Web Application Developer",
-    date: "Jan 2023 – May 2023",
-    company: "Intuitive Stack Solutions Private Limited",
+    date: "January 2023 — May 2023",
+    company: "Intuitive Stack Solution Private Limited",
     location: "Hyderabad",
     description: [
       "Identified and resolved design issues in both existing and developing products.",
@@ -46,7 +46,7 @@ const experiences = [
   {
     id: 3,
     position: "Associate Software Engineer",
-    date: "Mar 2022 – Nov 2022",
+    date: "March 2022 — November 2022",
     company: "BambeeQ Solutions Private Limited",
     location: "Chennai",
     description: [

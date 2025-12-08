@@ -14,15 +14,19 @@ export function Footer() {
         >
           <motion.a
             href="https://github.com"
-            className="text-gray-400 hover:text-gray-500"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             <GitHubLogoIcon className="h-6 w-6" />
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/praveen-rajkumar-59163416b"
-            className="text-gray-400 hover:text-gray-500"
+            href="https://www.linkedin.com/in/praveen-rajkumar-59163416b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -30,7 +34,7 @@ export function Footer() {
           </motion.a>
           <motion.a
             href="mailto:praveenraja60@gmail.com"
-            className="text-gray-400 hover:text-gray-500"
+            className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >

@@ -46,9 +46,9 @@ export function Navbar() {
               Contact
             </a>
             <a
-              href="/Assets/praveen_rajkumar_resume.pdf"
-              download
-              className="flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors duration-300 shadow-md"
+              href="/Assets/Praveen Resume.pdf"
+              download="Praveen_Rajkumar_Resume.pdf"
+              className="flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors duration-300 shadow-md"
             >
               <Download className="h-5 w-5 mr-1" />
               <span>Resume</span>
@@ -105,9 +105,9 @@ export function Navbar() {
               Contact
             </a>
             <a
-              href="/Assets/praveen_rajkumar_resume.pdf"
-              download
-              className="flex items-center mx-3 my-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors duration-300 shadow-md"
+              href="/Assets/Praveen Resume.pdf"
+              download="Praveen_Rajkumar_Resume.pdf"
+              className="flex items-center mx-3 my-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors duration-300 shadow-md"
             >
               <Download className="h-5 w-5 mr-2" />
               <span>Download Resume</span>
