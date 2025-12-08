@@ -18,7 +18,7 @@ const skillCategories = {
     },
     {
       name: "Freshworks",
-      icon: "https://logos-world.net/wp-content/uploads/2021/02/Freshworks-Logo.png",
+      icon: "/Assets/freshworks.jpg",
     },
   ],
   languages: [
