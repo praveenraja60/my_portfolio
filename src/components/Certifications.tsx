@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
-import { Award, FileText } from "lucide-react";
+import { Award, ExternalLink, FileBadge2, GraduationCap } from "lucide-react";
+
+const education = [
+  {
+    title: "Master of Computer Applications",
+    detail: "PSG College of Arts and Science, Coimbatore",
+    date: "Jul 2017 - May 2019",
+  },
+  {
+    title: "Bachelor of Computer Science",
+    detail: "Kamaraj College, Thoothukudi",
+    date: "Aug 2014 - Apr 2017",
+  },
+];
 
 const certifications = [
   {
@@ -19,116 +32,146 @@ const certifications = [
 const awards = [
   {
     title: "Certificate of Appreciation",
-    year: "2021",
     issuer: "Aaludra Technologies",
-    description: "Awarded for exemplary diligence",
+    detail: "Awarded for exemplary diligence",
+    year: "2021",
   },
   {
     title: "Service Certificate",
+    issuer: "National Service Scheme",
+    detail: "Recognized for two years of dedicated service",
     year: "2014 - 2016",
-    issuer: "National Service Scheme (NSS)",
-    description: "Recognized for completing two years of dedicated service",
   },
 ];
 
 export function Certifications() {
   return (
-    <section className="py-20 bg-white dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
-            Certifications & Awards
-          </h2>
-          <div className="mt-4 h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded"></div>
-        </motion.div>
+    <section
+      id="credentials"
+      className="bg-slate-50 py-20 text-slate-950 dark:bg-slate-900 dark:text-white sm:py-24"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div>
+            <p className="text-sm font-black uppercase text-teal-700 dark:text-teal-300">
+              Proof
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
+              Education & Credentials
+            </h2>
+          </div>
+          <p className="max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300 lg:justify-self-end">
+            Academic foundation, professional certifications, and recognition
+            that support a practical, delivery-focused engineering profile.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Certifications */}
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
+            className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-950/60"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
-              <FileText className="h-6 w-6 mr-2 text-indigo-600" />
-              Professional Credentials
-            </h3>
-            <div className="space-y-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 shadow-md"
-                >
-                  <h4 className="text-lg font-bold text-indigo-600 dark:text-indigo-400 mb-2">
-                    {cert.title}
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {cert.issuer}
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-lg bg-sky-50 text-sky-700 dark:bg-sky-400/10 dark:text-sky-200">
+                <GraduationCap className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-black">Education</h3>
+            </div>
+            <div className="mt-6 grid gap-5">
+              {education.map((item) => (
+                <div key={item.title} className="border-l-2 border-sky-200 pl-4 dark:border-sky-400/30">
+                  <p className="text-base font-black text-slate-950 dark:text-white">
+                    {item.title}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {cert.description}
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    {item.detail}
                   </p>
-                  {cert.verification && (
-                    <div className="mt-3">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Verification Code: <span className="font-mono">{cert.verification}</span>
-                      </p>
-                      {cert.link && (
-                        <a
-                          href={cert.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline"
-                        >
-                          Verify Certificate →
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </motion.div>
+                  <p className="mt-1 text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
+                    {item.date}
+                  </p>
+                </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Awards */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.06 }}
+            className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-950/60"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
-              <Award className="h-6 w-6 mr-2 text-indigo-600" />
-              Awards & Honors
-            </h3>
-            <div className="space-y-4">
-              {awards.map((award, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 shadow-md"
-                >
-                  <h4 className="text-lg font-bold text-indigo-600 dark:text-indigo-400 mb-2">
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal-50 text-teal-700 dark:bg-teal-400/10 dark:text-teal-200">
+                <FileBadge2 className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-black">Certifications</h3>
+            </div>
+            <div className="mt-6 grid gap-5">
+              {certifications.map((cert) => (
+                <div key={cert.title} className="rounded-lg bg-slate-50 p-4 dark:bg-white/5">
+                  <p className="text-base font-black text-slate-950 dark:text-white">
+                    {cert.title}
+                  </p>
+                  <p className="mt-1 text-sm font-bold text-teal-700 dark:text-teal-300">
+                    {cert.issuer}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    {cert.description}
+                  </p>
+                  {cert.verification && (
+                    <p className="mt-3 text-xs font-bold text-slate-500 dark:text-slate-400">
+                      Verification: {cert.verification}
+                    </p>
+                  )}
+                  {cert.link && (
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-teal-700 transition hover:text-teal-900 dark:text-teal-300 dark:hover:text-teal-100"
+                    >
+                      Verify Certificate
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.12 }}
+            className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-950/60"
+          >
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-lg bg-rose-50 text-rose-700 dark:bg-rose-400/10 dark:text-rose-200">
+                <Award className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-black">Awards</h3>
+            </div>
+            <div className="mt-6 grid gap-5">
+              {awards.map((award) => (
+                <div key={award.title} className="border-l-2 border-rose-200 pl-4 dark:border-rose-400/30">
+                  <p className="text-base font-black text-slate-950 dark:text-white">
                     {award.title}
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">
+                  </p>
+                  <p className="mt-1 text-sm font-bold text-rose-700 dark:text-rose-300">
                     {award.issuer}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {award.description}
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    {award.detail}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                  <p className="mt-1 text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
                     {award.year}
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
