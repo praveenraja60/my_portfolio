@@ -5,7 +5,7 @@ import { Footer } from "./components/Footer";
 import { Home } from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
-import { SkillsMarquee } from "./components/SkillsMarquee";
+import { Skills } from "./components/Skills";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <main>
         <Home />
         <About />
-        <SkillsMarquee />
+        <Skills />
         <Experience />
         <Projects />
         <Contact />

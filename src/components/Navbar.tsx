@@ -3,6 +3,7 @@ import { Download, Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -17,7 +18,14 @@ export function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
 
-      const sections = ["home", "about", "experience", "projects", "contact"];
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "experience",
+        "projects",
+        "contact",
+      ];
       const current = sections.find((id) => {
         const el = document.getElementById(id);
         if (!el) return false;
