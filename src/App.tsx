@@ -1,22 +1,22 @@
-import { Home } from "./components/Home";
-import { Experience } from "./components/Experience";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Certifications } from "./components/Certifications";
+import { About } from "./components/About";
 import { Contact } from "./components/Contact";
-import { Navbar } from "./components/Navbar";
+import { Experience } from "./components/Experience";
 import { Footer } from "./components/Footer";
+import { Home } from "./components/Home";
+import { Navbar } from "./components/Navbar";
+import { Projects } from "./components/Projects";
+import { SkillsMarquee } from "./components/SkillsMarquee";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen bg-cream text-charcoal">
       <Navbar />
       <main>
         <Home />
+        <About />
+        <SkillsMarquee />
         <Experience />
-        <Skills />
         <Projects />
-        <Certifications />
         <Contact />
       </main>
       <Footer />

@@ -1,67 +1,174 @@
 import { motion } from "framer-motion";
-import { Briefcase, CalendarDays, CheckCircle2, MapPin } from "lucide-react";
+import { easeOut, fadeUp, staggerContainer } from "../lib/motion";
 
-const experiences = [
+type ExperienceItem = {
+  position: string;
+  date: string;
+  company: string;
+  companyNote?: string;
+  location: string;
+  summary: string;
+  highlights: string[];
+  stack: string[];
+  current?: boolean;
+};
+
+const experiences: ExperienceItem[] = [
+  {
+    position: "Lead Software Engineer – Product Development",
+    date: "Mar 2026 – Present",
+    company: "Digylax Private Limited",
+    companyNote: "Digylax Private Limited",
+    location: "Product Development",
+    current: true,
+    summary:
+      "Leading development and maintenance of three products — HRMS, Ticket Management System, and Supplys Spot — spanning team leadership, client communication, and full-stack delivery.",
+    highlights: [
+      "Lead the development team, assign priorities, and keep feature delivery on schedule across all three products.",
+      "Coordinate sprint planning, task breakdown, and day-to-day engineering execution with clear ownership.",
+      "Communicate directly with clients, share progress updates, and align expectations before each release.",
+      "Prepare detailed release notes covering features, changes, and fixes scheduled for production deployment.",
+      "Independently built the Ticket Management System end-to-end — React.js front-end and Node.js back-end.",
+      "Implemented ticket status workflows, employee-wise time tracking, hours spent per ticket, and conversation history.",
+      "Contribute front-end and back-end components plus required integrations for the Supplys Spot product.",
+      "Actively develop and enhance the HRMS platform for ongoing HR and operational workflows.",
+      "Use Git for version control, code collaboration, branching strategy, and production-ready releases.",
+      "Own release management and production readiness checks so deployments stay predictable and documented.",
+    ],
+    stack: [
+      "Team Leadership",
+      "React.js",
+      "Node.js",
+      "Git",
+      "API Integrations",
+      "Release Management",
+      "Client Communication",
+      "Product Development",
+    ],
+  },
   {
     position: "React.js Developer",
-    date: "Aug 2023 - Dec 2025",
+    date: "Aug 2023 – Dec 2025",
     company: "Kambaa Incorporation",
     location: "Coimbatore",
     summary:
       "Led frontend modernization across React.js and React Native projects with a focus on performance, maintainability, and release quality.",
     highlights: [
-      "Transformed legacy products into responsive React applications with cleaner UI architecture.",
-      "Built admin panel flows for customers and delivery personnel with production-ready interactions.",
-      "Delivered React Native work for Android and iOS, including payment and notification experiences.",
-      "Explored AI-assisted workflows, prompt-driven builds, and Supabase-backed prototypes.",
+      "Transformed legacy product screens into responsive React.js applications with cleaner UI architecture.",
+      "Built and refined admin panel flows for customers and delivery personnel with production-ready interactions.",
+      "Delivered React Native features for Android and iOS, including payment and notification experiences.",
+      "Integrated Razorpay payment flows and validated edge cases across web and mobile surfaces.",
+      "Improved performance, reliability, and release polish through focused frontend decisions and bug fixes.",
+      "Collaborated with design and backend teams to ship consistent components and reusable UI patterns.",
+      "Explored AI-assisted workflows, prompt-driven builds, and Supabase-backed product prototypes.",
+      "Maintained Node.js service touchpoints where frontend delivery depended on API contracts and data flows.",
+      "Supported production releases with regression checks, UI hardening, and quick turnaround fixes.",
+      "Owned frontend delivery across commerce and operations products such as Grozerbeez, EasyDaily, and AnythingKovai.",
     ],
-    stack: ["React.js", "React Native", "Tailwind CSS", "Razorpay", "Supabase", "Node.js"],
+    stack: [
+      "React.js",
+      "React Native",
+      "Tailwind CSS",
+      "Razorpay",
+      "Supabase",
+      "Node.js",
+      "TypeScript",
+      "API Integration",
+    ],
   },
   {
     position: "Web Application Developer",
-    date: "Jan 2023 - May 2023",
+    date: "Jan 2023 – May 2023",
     company: "Intuitive Stack Solution Private Limited",
     location: "Hyderabad",
     summary:
       "Implemented frontend features, modules, testing feedback, and design fixes across customer-facing web applications.",
     highlights: [
       "Developed controllers, modules, and services tailored to customer requirements.",
-      "Improved product usability through design fixes and careful manual testing.",
-      "Worked with the team to clarify project scope and keep delivery moving predictably.",
+      "Implemented frontend features for customer-facing web application flows.",
+      "Applied design fixes to improve usability, visual consistency, and interaction clarity.",
+      "Performed careful manual testing and captured feedback for iterative product improvements.",
+      "Partnered with the team to clarify project scope and keep delivery timelines predictable.",
+      "Resolved UI defects found during QA cycles and stabilized release candidates.",
+      "Translated product requirements into practical screen-level implementation plans.",
+      "Supported integration work between frontend modules and backend services.",
+      "Documented feature changes and testing notes to improve handoff quality.",
+      "Maintained clean JavaScript frontend code with a focus on reliable delivery.",
     ],
-    stack: ["JavaScript", "Frontend UI", "Manual Testing", "Project Delivery"],
+    stack: [
+      "JavaScript",
+      "Frontend UI",
+      "Manual Testing",
+      "Project Delivery",
+      "Web Apps",
+      "Modules",
+      "QA Feedback",
+      "Design Fixes",
+    ],
   },
   {
     position: "Associate Software Engineer",
-    date: "Mar 2022 - Nov 2022",
+    date: "Mar 2022 – Nov 2022",
     company: "BambeeQ Solutions Private Limited",
     location: "Chennai",
     summary:
       "Built end-to-end web application features across database-backed systems and user-facing interfaces.",
     highlights: [
       "Created components and modules for hospital, task, and HR management workflows.",
+      "Built user-facing screens that connected cleanly to database-backed application logic.",
       "Resolved interface issues across active and developing products.",
       "Partnered with the development team to define software scope and improve outcomes.",
+      "Implemented forms, data views, and operational screens for Hospital Management System needs.",
+      "Delivered task-tracking modules that made assignments and updates easier to manage.",
+      "Contributed HR application features supporting day-to-day administrative workflows.",
+      "Improved consistency across shared components used in multiple internal products.",
+      "Supported testing cycles by reproducing bugs and validating fixes before release.",
+      "Collaborated across frontend and backend boundaries to keep features production-ready.",
     ],
-    stack: ["Web Apps", "Components", "HMS", "TMS", "HRA"],
+    stack: [
+      "Web Apps",
+      "Components",
+      "HMS",
+      "TMS",
+      "HRA",
+      "Forms",
+      "Data Views",
+      "Bug Fixes",
+    ],
   },
   {
     position: "Project Delegate",
-    date: "May 2021 - Dec 2021",
+    date: "May 2021 – Dec 2021",
     company: "SRJ Infognana Systems Private Limited",
     location: "Coimbatore",
     summary:
       "Supported responsive client webpages, usability improvements, and ongoing maintenance for company websites.",
     highlights: [
       "Collaborated with design, product, and backend teams to create interactive client pages.",
-      "Built customer-focused components and maintained existing websites.",
-      "Used GitHub workflows while contributing to Tab Service and Easy Cart projects.",
+      "Built customer-focused components for company websites and service products.",
+      "Maintained existing websites with ongoing content, layout, and usability updates.",
+      "Improved responsive behavior across desktop and mobile breakpoints.",
+      "Used GitHub workflows for collaboration, reviews, and versioned delivery.",
+      "Contributed to Tab Service with interactive UI and practical feature support.",
+      "Supported Easy Cart with frontend improvements focused on customer usability.",
+      "Fixed layout and interaction issues reported during client review cycles.",
+      "Helped translate design feedback into polished, shippable webpage updates.",
+      "Kept delivery organized through clear task tracking and team coordination.",
     ],
-    stack: ["Responsive UI", "GitHub", "Tab Service", "Easy Cart"],
+    stack: [
+      "Responsive UI",
+      "GitHub",
+      "Tab Service",
+      "Easy Cart",
+      "Client Websites",
+      "UI Maintenance",
+      "Collaboration",
+      "Usability",
+    ],
   },
   {
     position: "Junior Developer",
-    date: "Sep 2020 - Apr 2021",
+    date: "Sep 2020 – Apr 2021",
     company: "Aaludra Technologies",
     location: "Coimbatore",
     summary:
@@ -69,9 +176,25 @@ const experiences = [
     highlights: [
       "Performed code reviews, QA checks, and issue resolution for web-based software.",
       "Validated APIs using Postman and Swagger to keep integrations reliable.",
-      "Provided technical support and contributed to the SFC project.",
+      "Provided technical support for client-facing issues and production follow-ups.",
+      "Contributed bug fixes and incremental improvements to the SFC Support System.",
+      "Documented defects clearly so engineering and support teams could act quickly.",
+      "Assisted with release verification by confirming fixes against reported tickets.",
+      "Supported frontend and backend troubleshooting across active software modules.",
+      "Improved confidence in delivery through structured manual testing routines.",
+      "Communicated status updates on open issues and resolved tickets.",
+      "Built foundational engineering habits around quality, support, and collaboration.",
     ],
-    stack: ["QA", "Postman", "Swagger", "Client Support", "SFC"],
+    stack: [
+      "QA",
+      "Postman",
+      "Swagger",
+      "Client Support",
+      "SFC",
+      "Bug Fixes",
+      "API Validation",
+      "Code Review",
+    ],
   },
 ];
 
@@ -79,96 +202,123 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="bg-white py-20 text-slate-950 dark:bg-slate-950 dark:text-white sm:py-24"
+      className="relative overflow-hidden bg-sand-soft py-24 text-charcoal sm:py-32"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-          <div>
-            <p className="text-sm font-black uppercase text-teal-700 dark:text-teal-300">
-              Work
-            </p>
-            <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-              Professional Journey
-            </h2>
-          </div>
-          <p className="max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300 lg:justify-self-end">
-            A practical frontend path across startups, service teams, product
-            dashboards, React Native apps, admin systems, and production
-            maintenance.
-          </p>
-        </div>
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-cream to-transparent"
+        aria-hidden="true"
+      />
 
-        <div className="relative mt-14">
-          <div className="absolute left-4 top-0 hidden h-full w-px bg-slate-200 dark:bg-white/10 md:block" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.35 }}
+          className="max-w-2xl"
+        >
+          <motion.p variants={fadeUp} className="eyebrow">
+            Experience
+          </motion.p>
+          <motion.h2 variants={fadeUp} className="section-title mt-4">
+            Professional journey
+          </motion.h2>
+          <motion.p variants={fadeUp} className="body-copy mt-5">
+            From junior support work to leading product development — detailed
+            impact across every company and product surface.
+          </motion.p>
+        </motion.div>
 
-          <div className="space-y-6">
+        <div className="relative mt-16">
+          <div
+            className="absolute left-[1.35rem] top-6 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-cobalt-500 via-ember-500/60 to-transparent md:block"
+            aria-hidden="true"
+          />
+
+          <ol className="space-y-7">
             {experiences.map((exp, index) => (
-              <motion.article
+              <motion.li
                 key={`${exp.company}-${exp.date}`}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 36 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.55, delay: index * 0.06 }}
-                className="relative grid gap-5 rounded-lg border border-slate-200 bg-slate-50 p-5 shadow-sm dark:border-white/10 dark:bg-white/5 md:grid-cols-[12rem_1fr] md:p-6"
+                viewport={{ once: true, amount: 0.12 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.04,
+                  ease: easeOut,
+                }}
+                className="relative md:pl-16"
               >
-                <div className="hidden md:absolute md:left-2 md:top-8 md:grid md:h-5 md:w-5 md:place-items-center md:rounded-md md:border md:border-teal-200 md:bg-white dark:md:border-teal-400/30 dark:md:bg-slate-950">
-                  <span className="h-2 w-2 rounded-sm bg-teal-600 dark:bg-teal-300" />
-                </div>
+                <span
+                  className={`absolute left-[0.85rem] top-9 hidden h-4 w-4 rounded-full border-4 border-sand-soft md:block ${
+                    exp.current
+                      ? "bg-ember-600 shadow-[0_0_0_6px_rgba(225,6,0,0.16)]"
+                      : "bg-cobalt-500 shadow-[0_0_0_6px_rgba(0,71,171,0.12)]"
+                  }`}
+                  aria-hidden="true"
+                />
 
-                <div className="space-y-3 md:pl-7">
-                  <div className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-200">
-                    <CalendarDays className="h-4 w-4 text-teal-600 dark:text-teal-300" />
-                    {exp.date}
-                  </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
-                    <MapPin className="h-4 w-4" />
-                    {exp.location}
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <h3 className="text-2xl font-black text-slate-950 dark:text-white">
-                        {exp.position}
-                      </h3>
-                      <p className="mt-2 flex items-center gap-2 text-base font-bold text-slate-600 dark:text-slate-300">
-                        <Briefcase className="h-4 w-4 text-sky-600 dark:text-sky-300" />
-                        {exp.company}
-                      </p>
-                    </div>
+                <article
+                  className={`surface-card overflow-hidden p-6 transition duration-500 hover:-translate-y-1 sm:p-8 ${
+                    exp.current ? "ring-1 ring-ember-500/25" : ""
+                  }`}
+                >
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="rounded-full bg-cobalt-50 px-3 py-1 font-sans text-sm font-semibold text-cobalt-700">
+                      {exp.date}
+                    </p>
+                    {exp.current && (
+                      <span className="rounded-full bg-ember-600 px-3 py-1 font-sans text-[0.65rem] font-semibold uppercase tracking-wider text-white">
+                        Current
+                      </span>
+                    )}
+                    <span className="font-sans text-xs font-medium uppercase tracking-wider text-charcoal-mist">
+                      {exp.location}
+                    </span>
                   </div>
 
-                  <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-300">
+                  <h3 className="mt-4 font-display text-2xl font-bold tracking-display text-charcoal sm:text-[1.75rem]">
+                    {exp.position}
+                  </h3>
+                  <p className="mt-2 font-sans text-base font-medium text-charcoal-mute">
+                    {exp.company}
+                    {exp.companyNote ? (
+                      <span className="text-charcoal-mute/70">
+                        {" "}
+                        ({exp.companyNote})
+                      </span>
+                    ) : null}
+                  </p>
+
+                  <p className="body-copy mt-5 max-w-3xl !text-[0.95rem] !leading-7">
                     {exp.summary}
                   </p>
 
-                  <div className="mt-5 grid gap-3">
-                    {exp.highlights.map((highlight) => (
-                      <div
-                        key={highlight}
-                        className="flex gap-3 text-sm leading-6 text-slate-700 dark:text-slate-300"
+                  <ol className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {exp.highlights.map((item, pointIndex) => (
+                      <li
+                        key={item}
+                        className="rounded-xl border border-charcoal/6 bg-cream/80 p-3.5 font-sans text-sm leading-6 text-charcoal-mute"
                       >
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-teal-600 dark:text-teal-300" />
-                        <span>{highlight}</span>
-                      </div>
+                        <span className="mb-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-cobalt-500/10 font-display text-[0.65rem] font-bold text-cobalt-600">
+                          {String(pointIndex + 1).padStart(2, "0")}
+                        </span>
+                        <span className="block">{item}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ol>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="mt-6 flex flex-wrap gap-2 border-t border-charcoal/8 pt-5">
                     {exp.stack.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-600 dark:border-white/10 dark:bg-slate-950/50 dark:text-slate-300"
-                      >
+                      <span key={skill} className="tag-pill">
                         {skill}
                       </span>
                     ))}
                   </div>
-                </div>
-              </motion.article>
+                </article>
+              </motion.li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>

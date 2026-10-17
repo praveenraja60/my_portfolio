@@ -5,10 +5,10 @@
 @layer base {
   :root {
     color-scheme: light;
-  }
-
-  :root.dark {
-    color-scheme: dark;
+    --red: #e10600;
+    --cobalt: #0047ab;
+    --navy: #0a1628;
+    --ice: #f4f7fc;
   }
 
   html {
@@ -18,25 +18,115 @@
   body {
     margin: 0;
     min-width: 320px;
-    background: #ffffff;
-    font-family:
-      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", sans-serif;
+    background: var(--ice);
+    color: var(--navy);
+    font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01" on, "cv11" on;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+    font-optical-sizing: auto;
+  }
+
   section {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 5rem;
   }
 
   ::selection {
-    background: #0f766e;
+    background: #e10600;
     color: #ffffff;
   }
 
-  img {
+  img,
+  video {
     max-width: 100%;
+    display: block;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-sans text-[0.68rem] font-semibold uppercase tracking-section text-cobalt-500;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-ember-600;
+  }
+
+  .eyebrow-light {
+    @apply inline-flex items-center gap-2 font-sans text-[0.68rem] font-semibold uppercase tracking-section text-cobalt-300;
+  }
+
+  .eyebrow-light::before {
+    content: "";
+    @apply h-px w-6 bg-ember-500;
+  }
+
+  .section-title {
+    @apply font-display text-display-lg text-charcoal;
+  }
+
+  .body-copy {
+    @apply font-sans text-base font-normal leading-[1.85] text-charcoal-mute sm:text-[1.05rem];
+  }
+
+  .tag-pill {
+    @apply inline-flex items-center rounded-full bg-sand-soft px-3.5 py-1.5 font-sans text-[0.68rem] font-semibold tracking-wide text-charcoal-mute;
+  }
+
+  .tag-pill-dark {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-charcoal px-3.5 py-1.5 font-sans text-[0.68rem] font-semibold tracking-wide text-charcoal-mist;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-ember-600 px-5 py-3 font-sans text-sm font-semibold text-white shadow-[0_18px_40px_-18px_rgba(225,6,0,0.95)] transition duration-300 hover:-translate-y-0.5 hover:bg-ember-700;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 font-sans text-sm font-semibold text-white backdrop-blur transition duration-300 hover:border-cobalt-300 hover:bg-white/10;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-sand-deep/60 bg-white shadow-[0_24px_60px_-36px_rgba(10,22,40,0.28)];
+  }
+
+  .surface-dark {
+    @apply rounded-2xl border border-white/10 bg-charcoal-soft;
+  }
+
+  .marquee-track {
+    animation: marquee 28s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 }
