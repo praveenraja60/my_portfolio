@@ -1,40 +1,29 @@
 import { useEffect, useState } from "react";
-import { Download, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
+  { label: "Work", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("#home");
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 24);
-
-      const sections = [
-        "home",
-        "about",
-        "skills",
-        "experience",
-        "projects",
-        "contact",
-      ];
+      const sections = ["home", "about", "skills", "experience", "projects", "contact"];
       const current = sections.find((id) => {
         const el = document.getElementById(id);
         if (!el) return false;
         const rect = el.getBoundingClientRect();
-        return rect.top <= 120 && rect.bottom >= 120;
+        return rect.top <= 140 && rect.bottom >= 140;
       });
       if (current) setActive(`#${current}`);
     };
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -43,99 +32,65 @@ export function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition duration-300 ${
-        scrolled || isOpen
-          ? "border-b border-charcoal/10 bg-cream/85 text-charcoal shadow-[0_10px_40px_-24px_rgba(10,22,40,0.35)] backdrop-blur-xl"
-          : "bg-transparent text-white"
-      }`}
-    >
-      <nav className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a
-          href="#home"
-          onClick={closeMenu}
-          className="font-display text-xl font-bold tracking-display"
-          aria-label="Go to home"
-        >
-          Praveen<span className="text-ember-600">.</span>
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <nav className="mx-auto flex h-14 max-w-[88rem] items-center justify-between rounded-full border border-white/10 bg-black/75 px-3 pl-5 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+        <a href="#home" onClick={closeMenu} className="font-display text-lg font-semibold tracking-display text-white">
+          Praveen<span className="text-ember-500">.</span>
         </a>
 
-        <div className="hidden items-center gap-1 rounded-full border border-white/0 p-1 md:flex md:border-charcoal/0">
-          <div
-            className={`flex items-center gap-0.5 rounded-full p-1 ${
-              scrolled ? "bg-white/70" : "bg-white/5"
-            }`}
-          >
-            {navItems.map((item) => {
-              const isActive = active === item.href;
-
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`rounded-full px-3.5 py-2 font-sans text-[0.78rem] font-medium tracking-wide transition ${
-                    isActive
-                      ? scrolled
-                        ? "bg-charcoal text-white"
-                        : "bg-white text-charcoal"
-                      : scrolled
-                        ? "text-charcoal-mute hover:text-charcoal"
-                        : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-          </div>
-          <a
-            href="/Assets/Praveen Resume.pdf"
-            download="Praveen_Rajkumar_Resume.pdf"
-            className="ml-2 inline-flex items-center gap-2 rounded-full bg-ember-600 px-4 py-2.5 font-sans text-[0.75rem] font-semibold tracking-wide text-white shadow-[0_12px_30px_-14px_rgba(225,6,0,0.9)] transition hover:-translate-y-0.5 hover:bg-ember-700"
-          >
-            <Download className="h-3.5 w-3.5" />
-            Resume
-          </a>
+        <div className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`rounded-full px-3.5 py-2 font-sans text-[0.78rem] transition ${
+                active === item.href
+                  ? "bg-white text-charcoal"
+                  : "text-white/65 hover:text-white"
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
+
+        <a
+          href="/Assets/Praveen Resume.pdf"
+          download="Praveen_Rajkumar_Resume.pdf"
+          className="hidden rounded-full bg-white px-4 py-2 font-sans text-xs font-semibold text-charcoal transition hover:bg-ember-500 hover:text-white md:inline-flex"
+        >
+          Resume
+        </a>
 
         <button
           type="button"
           onClick={() => setIsOpen((value) => !value)}
-          className={`grid h-10 w-10 place-items-center rounded-full border md:hidden ${
-            scrolled || isOpen
-              ? "border-charcoal/15 text-charcoal"
-              : "border-white/20 text-white"
-          }`}
+          className="grid h-10 w-10 place-items-center rounded-full text-white md:hidden"
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={isOpen}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       {isOpen && (
-        <div className="border-t border-charcoal/8 bg-cream px-4 py-5 text-charcoal md:hidden">
-          <div className="mx-auto grid max-w-7xl gap-1">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={closeMenu}
-                className="rounded-xl px-3 py-3 font-sans text-base font-medium hover:bg-white"
-              >
-                {item.label}
-              </a>
-            ))}
+        <div className="mx-auto mt-2 max-w-[88rem] rounded-3xl border border-white/10 bg-black/95 p-4 text-white backdrop-blur-xl md:hidden">
+          {navItems.map((item) => (
             <a
-              href="/Assets/Praveen Resume.pdf"
-              download="Praveen_Rajkumar_Resume.pdf"
+              key={item.href}
+              href={item.href}
               onClick={closeMenu}
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-ember-600 px-4 py-3 font-sans text-sm font-semibold text-white"
+              className="block rounded-2xl px-3 py-3 font-sans text-base"
             >
-              <Download className="h-4 w-4" />
-              Download Resume
+              {item.label}
             </a>
-          </div>
+          ))}
+          <a
+            href="/Assets/Praveen Resume.pdf"
+            download="Praveen_Rajkumar_Resume.pdf"
+            className="mt-2 flex justify-center rounded-full bg-white py-3 font-sans text-sm font-semibold text-charcoal"
+          >
+            Resume
+          </a>
         </div>
       )}
     </header>

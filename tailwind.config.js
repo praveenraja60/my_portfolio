@@ -4,18 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Bright red — accents / CTAs
+        // Wine red — accents and colored surfaces
         ember: {
-          50: '#fff1f1',
-          100: '#ffd6d6',
-          200: '#ffb0b0',
-          300: '#ff7a7a',
-          400: '#ff3d3d',
-          500: '#ff1e1e',
-          600: '#e10600',
-          700: '#c10500',
-          800: '#9a0400',
-          900: '#7a0300',
+          50: '#fbf4f5',
+          100: '#f3e2e4',
+          200: '#e4c0c5',
+          300: '#c98992',
+          400: '#a84d5c',
+          500: '#8b2332',
+          600: '#72202c',
+          700: '#5a1822',
+          800: '#3f1118',
+          900: '#260a0e',
         },
         // Cobalt blue — secondary accent
         cobalt: {
@@ -32,9 +32,9 @@ export default {
         },
         // Cool light surfaces (About)
         cream: {
-          DEFAULT: '#f4f7fc',
-          soft: '#f9fbfe',
-          deep: '#e8eef8',
+          DEFAULT: '#ffffff',
+          soft: '#fafafa',
+          deep: '#f3f3f3',
         },
         // Soft navy-tinted mid surfaces (Experience)
         sand: {
@@ -44,10 +44,10 @@ export default {
         },
         // Midnight navy — dark surfaces / text
         charcoal: {
-          DEFAULT: '#0a1628',
-          soft: '#12233d',
-          mute: '#4a6080',
-          mist: '#8fa3c0',
+          DEFAULT: '#0a0a0a',
+          soft: '#161616',
+          mute: '#525252',
+          mist: '#a3a3a3',
         },
       },
       borderRadius: {

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { easeOut, fadeUp, staggerContainer } from "../lib/motion";
+import { Atmosphere } from "./ui/Atmosphere";
 
 type ExperienceItem = {
   position: string;
@@ -202,14 +203,10 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-sand-soft py-24 text-charcoal sm:py-32"
+      className="relative overflow-hidden bg-black py-24 text-white sm:py-32"
     >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-cream to-transparent"
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Atmosphere />
+      <div className="relative mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -231,7 +228,7 @@ export function Experience() {
 
         <div className="relative mt-16">
           <div
-            className="absolute left-[1.35rem] top-6 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-cobalt-500 via-ember-500/60 to-transparent md:block"
+            className="absolute left-[1.35rem] top-6 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-white/30 to-transparent md:block"
             aria-hidden="true"
           />
 
@@ -250,21 +247,19 @@ export function Experience() {
                 className="relative md:pl-16"
               >
                 <span
-                  className={`absolute left-[0.85rem] top-9 hidden h-4 w-4 rounded-full border-4 border-sand-soft md:block ${
-                    exp.current
-                      ? "bg-ember-600 shadow-[0_0_0_6px_rgba(225,6,0,0.16)]"
-                      : "bg-cobalt-500 shadow-[0_0_0_6px_rgba(0,71,171,0.12)]"
+                  className={`absolute left-[0.85rem] top-9 hidden h-3.5 w-3.5 rounded-full border-4 border-black md:block ${
+                    exp.current ? "bg-ember-500" : "bg-white"
                   }`}
                   aria-hidden="true"
                 />
 
                 <article
-                  className={`surface-card overflow-hidden p-6 transition duration-500 hover:-translate-y-1 sm:p-8 ${
-                    exp.current ? "ring-1 ring-ember-500/25" : ""
+                  className={`frame p-6 transition duration-500 hover:border-white/25 sm:p-8 ${
+                    exp.current ? "border-ember-500/40" : ""
                   }`}
                 >
                   <div className="flex flex-wrap items-center gap-2">
-                    <p className="rounded-full bg-cobalt-50 px-3 py-1 font-sans text-sm font-semibold text-cobalt-700">
+                    <p className="rounded-full border border-white/10 px-3 py-1 font-sans text-sm text-white/80">
                       {exp.date}
                     </p>
                     {exp.current && (
@@ -272,21 +267,18 @@ export function Experience() {
                         Current
                       </span>
                     )}
-                    <span className="font-sans text-xs font-medium uppercase tracking-wider text-charcoal-mist">
+                    <span className="font-sans text-xs uppercase tracking-wider text-white/40">
                       {exp.location}
                     </span>
                   </div>
 
-                  <h3 className="mt-4 font-display text-2xl font-bold tracking-display text-charcoal sm:text-[1.75rem]">
+                  <h3 className="mt-4 font-display text-2xl font-semibold tracking-display text-white sm:text-[1.75rem]">
                     {exp.position}
                   </h3>
-                  <p className="mt-2 font-sans text-base font-medium text-charcoal-mute">
+                  <p className="mt-2 font-sans text-base font-medium text-white/60">
                     {exp.company}
                     {exp.companyNote ? (
-                      <span className="text-charcoal-mute/70">
-                        {" "}
-                        ({exp.companyNote})
-                      </span>
+                      <span className="text-white/40"> ({exp.companyNote})</span>
                     ) : null}
                   </p>
 
@@ -298,9 +290,9 @@ export function Experience() {
                     {exp.highlights.map((item, pointIndex) => (
                       <li
                         key={item}
-                        className="rounded-xl border border-charcoal/6 bg-cream/80 p-3.5 font-sans text-sm leading-6 text-charcoal-mute"
+                        className="rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 font-sans text-sm leading-6 text-white/60"
                       >
-                        <span className="mb-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-cobalt-500/10 font-display text-[0.65rem] font-bold text-cobalt-600">
+                        <span className="mb-2 inline-flex font-display text-[0.65rem] font-semibold text-ember-400">
                           {String(pointIndex + 1).padStart(2, "0")}
                         </span>
                         <span className="block">{item}</span>
@@ -308,7 +300,7 @@ export function Experience() {
                     ))}
                   </ol>
 
-                  <div className="mt-6 flex flex-wrap gap-2 border-t border-charcoal/8 pt-5">
+                  <div className="mt-6 flex flex-wrap gap-2 border-t border-white/10 pt-5">
                     {exp.stack.map((skill) => (
                       <span key={skill} className="tag-pill">
                         {skill}

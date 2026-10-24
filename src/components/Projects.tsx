@@ -1,137 +1,130 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { SectionHeader } from "./ui/SectionHeader";
 import { easeOut } from "../lib/motion";
+import { Atmosphere } from "./ui/Atmosphere";
 
 const projects = [
   {
+    index: "01",
     title: "Ticket Management System",
-    type: "Digylax · Internal Ops",
+    type: "Digylax",
     summary:
-      "Full-stack ticket platform for raising, tracking, and resolving company tickets — status flows, employee time tracking, hours spent, and conversation history.",
-    stack: ["React.js", "Node.js", "API Integrations", "Time Tracking"],
-    featured: true,
+      "Full-stack tickets — status, employee time, hours spent, and conversation history.",
+    stack: ["React.js", "Node.js", "Time tracking"],
+    cover: "from-[#1a1a1a] via-[#5a1822] to-[#8b2332]",
   },
   {
+    index: "02",
     title: "Supplys Spot",
-    type: "Digylax · Product",
-    summary:
-      "Front-end and back-end components plus integrations for a supply-focused product platform.",
-    stack: ["React.js", "Node.js", "Integrations", "Product Dev"],
+    type: "Digylax",
+    summary: "Front-end, back-end, and integrations for a supply product.",
+    stack: ["React.js", "Node.js", "Integrations"],
+    cover: "from-[#000000] via-[#3f1118] to-[#72202c]",
   },
   {
+    index: "03",
     title: "HRMS",
-    type: "Digylax · Product",
-    summary:
-      "Ongoing development and enhancement of the Human Resource Management System.",
-    stack: ["React.js", "Node.js", "HR Workflows", "Release Mgmt"],
+    type: "Digylax",
+    summary: "Ongoing development of the Human Resource Management System.",
+    stack: ["React.js", "Node.js", "HR workflows"],
+    cover: "from-[#260a0e] via-[#8b2332] to-[#111111]",
   },
   {
+    index: "04",
     title: "Grozerbeez",
-    type: "Mobile Commerce",
-    summary:
-      "React Native grocery experience with order alerts, delivery workflows, and mobile-first customer interactions.",
-    stack: ["React Native", "Notifications", "Razorpay", "API Integration"],
+    type: "Commerce",
+    summary: "React Native grocery flows with alerts, delivery, and Razorpay.",
+    stack: ["React Native", "Razorpay"],
+    cover: "from-[#111111] via-[#5a1822] to-[#000000]",
   },
   {
+    index: "05",
     title: "EasyDaily",
-    type: "Customer Operations",
-    summary:
-      "Responsive web flows and admin-facing features built to support daily ordering and service operations.",
-    stack: ["React.js", "JavaScript", "Responsive UI", "Admin Panel"],
+    type: "Operations",
+    summary: "Responsive ordering flows and admin-facing service tools.",
+    stack: ["React.js", "Admin panel"],
+    cover: "from-[#3f1118] via-[#72202c] to-[#0a0a0a]",
   },
   {
+    index: "06",
     title: "AnythingKovai",
-    type: "Local Service Platform",
+    type: "Local platform",
     summary:
-      "Frontend improvements for a local service product, focused on usability, speed, and cleaner interactions.",
-    stack: ["React.js", "Tailwind CSS", "API Workflows", "UX Fixes"],
+      "Usability, speed, and cleaner interactions for a local service product.",
+    stack: ["React.js", "Tailwind CSS"],
+    cover: "from-[#0a0a0a] via-[#8b2332] to-[#1a1a1a]",
   },
 ];
 
 export function Projects() {
-  const [featured, ...rest] = projects;
-
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-charcoal py-24 text-cream sm:py-32"
+      className="relative overflow-hidden bg-black py-24 text-white sm:py-32"
     >
-      <div
-        className="pointer-events-none absolute left-1/2 top-0 h-80 w-[42rem] -translate-x-1/2 rounded-full bg-cobalt-500/15 blur-3xl"
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Projects"
-          title="Selected work"
-          description="Current Digylax products and earlier shipping work across commerce, operations, and platform UI."
-          light
-          align="split"
-        />
-
-        <motion.article
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: easeOut }}
-          className="group mt-14 overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-charcoal-soft via-charcoal to-[#07101c] p-7 sm:p-10"
-        >
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <span className="rounded-full bg-ember-600/15 px-3 py-1.5 font-sans text-[0.65rem] font-semibold uppercase tracking-section text-ember-300">
-              {featured.type}
-            </span>
-            <ArrowUpRight className="h-5 w-5 text-charcoal-mist transition group-hover:text-ember-400" />
+      <Atmosphere />
+      <div className="relative mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="eyebrow">Projects</p>
+            <h2 className="section-title mt-5">Selected work</h2>
           </div>
-          <h3 className="mt-6 max-w-3xl font-display text-3xl font-bold tracking-display text-cream sm:text-5xl">
-            {featured.title}
-          </h3>
-          <p className="mt-5 max-w-3xl font-sans text-base font-light leading-8 text-charcoal-mist">
-            {featured.summary}
+          <p className="max-w-sm font-sans text-sm font-light leading-7 text-white/50">
+            Cinematic covers for now. Screenshots can replace them later.
           </p>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {featured.stack.map((item) => (
-              <span key={item} className="tag-pill-dark">
-                {item}
-              </span>
-            ))}
-          </div>
-        </motion.article>
+        </div>
 
-        <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {rest.map((project, index) => (
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {projects.map((project, index) => (
             <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{
-                duration: 0.55,
-                delay: index * 0.05,
+                duration: 0.6,
+                delay: (index % 2) * 0.06,
                 ease: easeOut,
               }}
-              className="group surface-dark flex h-full flex-col rounded-[1.5rem] p-6 transition duration-400 hover:-translate-y-1.5 hover:border-cobalt-400/40"
+              className={`group ${index === 0 ? "md:col-span-2" : ""}`}
             >
-              <div className="flex items-start justify-between gap-3">
-                <span className="h-1.5 w-10 rounded-full bg-gradient-to-r from-ember-500 to-cobalt-400" />
-                <ArrowUpRight className="h-4 w-4 text-charcoal-mist transition group-hover:text-ember-400" />
+              <div
+                className={`frame relative bg-gradient-to-br ${project.cover} ${
+                  index === 0 ? "aspect-[16/8]" : "aspect-[16/10]"
+                }`}
+              >
+                <div
+                  className="absolute inset-0 opacity-30 transition duration-700 group-hover:opacity-50"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px)",
+                    backgroundSize: "42px 42px",
+                  }}
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+                  <div className="flex items-center justify-between text-white/70">
+                    <span className="font-sans text-xs uppercase tracking-[0.2em]">
+                      {project.index} · {project.type}
+                    </span>
+                    <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </div>
+                  <h3 className="max-w-3xl font-display text-4xl font-semibold tracking-display sm:text-5xl">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
-              <p className="mt-6 font-sans text-[0.65rem] font-semibold uppercase tracking-section text-cobalt-300">
-                {project.type}
-              </p>
-              <h3 className="mt-3 font-display text-2xl font-bold tracking-display text-cream">
-                {project.title}
-              </h3>
-              <p className="mt-4 flex-1 font-sans text-sm font-light leading-7 text-charcoal-mist">
-                {project.summary}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2 border-t border-white/8 pt-5">
-                {project.stack.map((item) => (
-                  <span key={item} className="tag-pill-dark">
-                    {item}
-                  </span>
-                ))}
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <p className="max-w-xl font-sans text-sm font-light leading-7 text-white/60">
+                  {project.summary}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <span key={item} className="tag-pill">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.article>
           ))}

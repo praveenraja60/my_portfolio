@@ -10,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import { easeOut } from "../lib/motion";
+import { Atmosphere } from "./ui/Atmosphere";
 import { SectionHeader } from "./ui/SectionHeader";
 
 type SkillTone = {
@@ -33,11 +34,11 @@ const skillGroups: {
     summary: "Modern UI delivery with React, JavaScript, and TypeScript.",
     skills: ["React.js", "JavaScript", "TypeScript", "HTML5 / CSS3"],
     tone: {
-      card: "border-cobalt-200 bg-cobalt-50/70",
-      icon: "bg-cobalt-500 text-white",
-      bar: "bg-cobalt-500",
-      tag: "bg-cobalt-500/10 text-cobalt-700",
-      title: "text-cobalt-800",
+      card: "border-white/15 bg-black",
+      icon: "bg-ember-600 text-white",
+      bar: "bg-ember-500",
+      tag: "bg-white/10 text-white",
+      title: "text-white",
     },
   },
   {
@@ -46,11 +47,11 @@ const skillGroups: {
     summary: "Responsive interfaces, dashboards, and reusable visual systems.",
     skills: ["Tailwind CSS", "Material UI", "Bootstrap", "Reactstrap"],
     tone: {
-      card: "border-violet-200 bg-violet-50/70",
-      icon: "bg-violet-500 text-white",
-      bar: "bg-violet-500",
-      tag: "bg-violet-500/10 text-violet-700",
-      title: "text-violet-800",
+      card: "border-white/40 bg-white",
+      icon: "bg-ember-700 text-white",
+      bar: "bg-ember-700",
+      tag: "bg-ember-50 text-ember-800",
+      title: "text-black",
     },
   },
   {
@@ -59,11 +60,11 @@ const skillGroups: {
     summary: "Cross-platform delivery with payments and notifications.",
     skills: ["React Native", "Android / iOS", "Push Notifications", "Razorpay"],
     tone: {
-      card: "border-emerald-200 bg-emerald-50/70",
-      icon: "bg-emerald-500 text-white",
-      bar: "bg-emerald-500",
-      tag: "bg-emerald-500/10 text-emerald-700",
-      title: "text-emerald-800",
+      card: "border-ember-300 bg-ember-50",
+      icon: "bg-black text-white",
+      bar: "bg-black",
+      tag: "bg-ember-100 text-ember-800",
+      title: "text-ember-900",
     },
   },
   {
@@ -72,11 +73,11 @@ const skillGroups: {
     summary: "Full-stack range for APIs, services, and product integrations.",
     skills: ["Node.js", "Express.js", "Supabase", "MySQL / PostgreSQL"],
     tone: {
-      card: "border-amber-200 bg-amber-50/70",
-      icon: "bg-amber-500 text-white",
-      bar: "bg-amber-500",
-      tag: "bg-amber-500/10 text-amber-800",
-      title: "text-amber-900",
+      card: "border-white/10 bg-ember-900",
+      icon: "bg-white text-ember-800",
+      bar: "bg-white",
+      tag: "bg-white/10 text-white",
+      title: "text-white",
     },
   },
   {
@@ -92,11 +93,11 @@ const skillGroups: {
       "Requirement Analysis",
     ],
     tone: {
-      card: "border-rose-200 bg-rose-50/70",
-      icon: "bg-rose-500 text-white",
-      bar: "bg-rose-500",
-      tag: "bg-rose-500/10 text-rose-700",
-      title: "text-rose-800",
+      card: "border-black/10 bg-white",
+      icon: "bg-ember-600 text-white",
+      bar: "bg-ember-600",
+      tag: "bg-black text-white",
+      title: "text-black",
     },
   },
   {
@@ -110,11 +111,11 @@ const skillGroups: {
       "Project Coordination",
     ],
     tone: {
-      card: "border-ember-200 bg-ember-50/70",
-      icon: "bg-ember-600 text-white",
-      bar: "bg-ember-600",
-      tag: "bg-ember-600/10 text-ember-700",
-      title: "text-ember-800",
+      card: "border-white/20 bg-black",
+      icon: "bg-ember-500 text-white",
+      bar: "bg-ember-400",
+      tag: "bg-ember-900 text-ember-100",
+      title: "text-white",
     },
   },
   {
@@ -123,11 +124,11 @@ const skillGroups: {
     summary: "Practical AI workflows for faster builds and prototypes.",
     skills: ["Cursor", "Amazon Q", "Bolt", "Gemini"],
     tone: {
-      card: "border-sky-200 bg-sky-50/70",
-      icon: "bg-sky-500 text-white",
-      bar: "bg-sky-500",
-      tag: "bg-sky-500/10 text-sky-700",
-      title: "text-sky-800",
+      card: "border-ember-200 bg-white",
+      icon: "bg-ember-800 text-white",
+      bar: "bg-ember-800",
+      tag: "bg-ember-50 text-ember-800",
+      title: "text-ember-900",
     },
   },
   {
@@ -136,47 +137,41 @@ const skillGroups: {
     summary: "Version control, API validation, QA, and deployment habits.",
     skills: ["Git", "Postman", "Swagger", "VS Code", "Freshworks"],
     tone: {
-      card: "border-teal-200 bg-teal-50/70",
-      icon: "bg-teal-500 text-white",
-      bar: "bg-teal-500",
-      tag: "bg-teal-500/10 text-teal-700",
-      title: "text-teal-800",
+      card: "border-white/15 bg-ember-700",
+      icon: "bg-white text-ember-800",
+      bar: "bg-white",
+      tag: "bg-black/30 text-white",
+      title: "text-white",
     },
   },
 ];
 
 const highlightSkills = [
-  { name: "React.js", color: "bg-cobalt-500/10 text-cobalt-700 border-cobalt-200" },
-  { name: "Node.js", color: "bg-amber-500/10 text-amber-800 border-amber-200" },
-  { name: "TypeScript", color: "bg-violet-500/10 text-violet-700 border-violet-200" },
-  { name: "React Native", color: "bg-emerald-500/10 text-emerald-700 border-emerald-200" },
-  { name: "Freshworks", color: "bg-rose-500/10 text-rose-700 border-rose-200" },
-  { name: "Analysis", color: "bg-rose-500/10 text-rose-700 border-rose-200" },
-  { name: "Release Management", color: "bg-ember-600/10 text-ember-700 border-ember-200" },
-  { name: "Team Leadership", color: "bg-ember-600/10 text-ember-700 border-ember-200" },
+  { name: "React.js", color: "bg-black text-white border-black" },
+  { name: "Node.js", color: "bg-white text-ember-800 border-white" },
+  { name: "TypeScript", color: "bg-ember-900 text-white border-ember-700" },
+  { name: "React Native", color: "bg-white text-black border-white" },
+  { name: "Freshworks", color: "bg-ember-600 text-white border-ember-500" },
+  { name: "Analysis", color: "bg-black text-white border-black" },
+  { name: "Release Management", color: "bg-white text-ember-900 border-white" },
+  { name: "Team Leadership", color: "bg-ember-700 text-white border-ember-600" },
 ];
 
 export function Skills() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden bg-cream-soft py-24 text-charcoal sm:py-32"
+      className="relative overflow-hidden bg-ember-800 py-24 text-white sm:py-32"
     >
-      <div
-        className="pointer-events-none absolute right-0 top-20 h-72 w-72 rounded-full bg-cobalt-500/10 blur-3xl"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -left-10 bottom-10 h-64 w-64 rounded-full bg-ember-600/10 blur-3xl"
-        aria-hidden="true"
-      />
+      <Atmosphere tone="wine" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <SectionHeader
           eyebrow="Skills"
           title="Technical skillset"
-          description="A practical stack spanning frontend, mobile, backend, analysis, leadership, and AI tooling — each group with its own color identity."
+          description="A practical stack spanning frontend, mobile, backend, analysis, leadership, and AI tooling."
           align="split"
+          light
         />
 
         <div className="mt-10 flex flex-wrap gap-2">
@@ -221,7 +216,7 @@ export function Skills() {
                     >
                       {group.title}
                     </h3>
-                    <p className="mt-2 font-sans text-sm leading-6 text-charcoal-mute">
+                    <p className={`mt-2 font-sans text-sm leading-6 opacity-70 ${group.tone.title}`}>
                       {group.summary}
                     </p>
                   </div>
